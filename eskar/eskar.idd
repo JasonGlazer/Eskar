@@ -6,7 +6,6 @@ Eskar:Heights,
        \unique-object
        \extensible:1 
   A1 , \field Name
-       \required-field
        \type alpha
   N1,  \field Height of Height Index 1  
        \required-field
@@ -78,7 +77,6 @@ Eskar:DimensionSeriesX,
        \unique-object
        \extensible:1 
   A1 , \field Name
-       \required-field
        \type alpha
   N1,  \field Distance Origin to A
        \required-field
@@ -174,13 +172,12 @@ Eskar:DimensionSeriesX,
        \units m
        \type real
 
-Eskar:DimensionSeriesY, (only one of these)
+Eskar:DimensionSeriesY,
        \memo Specify the incremental distances from the origin in the Y dimension
        \memo A special value for any distance of -999999 means to reset the origin for any distances following
        \unique-object
        \extensible:1 
   A1 , \field Name
-       \required-field
        \type alpha
   N1,  \field Distance Origin to Location 1
        \required-field
@@ -293,6 +290,7 @@ Eskar:Zone,
        \object-list EskarOccupancyTypes
   N1,  \field Height index of Floor
        \minimum 1
+       \required-field
        \type integer
   N2,  \field Height index of Ceiling
        \minimum 1
@@ -314,12 +312,15 @@ Eskar:Zone,
        \note corner of zone using dimensions from Eskar:DimensionSeriesX and Eskar:DimensionSeriesY in the form of: A1, B9, AQ57
        \type alpha
        \begin-extensible
+       \required-field
   A5,  \field corner 2
        \note corner of zone using dimensions from Eskar:DimensionSeriesX and Eskar:DimensionSeriesY in the form of: A1, B9, AQ57
        \type alpha
+       \required-field
   A6,  \field corner 3
        \note corner of zone using dimensions from Eskar:DimensionSeriesX and Eskar:DimensionSeriesY in the form of: A1, B9, AQ57
        \type alpha
+       \required-field
   A7,  \field corner 4
        \note corner of zone using dimensions from Eskar:DimensionSeriesX and Eskar:DimensionSeriesY in the form of: A1, B9, AQ57
        \type alpha
@@ -344,7 +345,7 @@ Eskar:Zone,
 
 Eskar:OccupancyType,  
        \memo some 'office', 'retail', etc.. are predefined and don't need to be specified - should it include thermostat setpoints?
-  A1,  \field name
+  A1,  \field Name
        \required-field
        \type alpha
        \reference EskarOccupancyTypes
@@ -353,8 +354,8 @@ Eskar:OccupancyType,
        \minimum 0
        \units W/m2
        \ip-units W/ft2
+       \default 0
   A2,  \field lighting schedule
-       \required-field
        \type object-list
        \object-list ScheduleNames
        \note units in schedule should be fraction applied to design level of lights, generally (0.0 - 1.0)
@@ -381,13 +382,13 @@ Eskar:OccupancyType,
        \key RecessedParabolicLouverNonVentedT8HalfTypicalSupplyAirflowRate
        \key RecessedParabolicLouverVentedT8HalfTypicalSupplyAirflowRate 
        \key RecessedDirectIndirectT8HalfTypicalSupplyAirflowRate
-       \default RecessedParabolicLouverNonVentedT8
   A4,  \field Daylighting Lighting Control Type
        \type choice
+       \key None
        \key Continuous
        \key Stepped
        \key ContinuousOff
-       \default Continuous
+       \default None
   N2,  \field Daylighting Sensor Height
        \note the default is desktop height
        \type real
@@ -435,8 +436,8 @@ Eskar:OccupancyType,
        \minimum 0
        \units W/m2
        \ip-units W/ft2
+       \default 0
   A5 , \field Electrical Equipment Schedule Name
-       \required-field
        \type object-list
        \object-list ScheduleNames
        \note units in schedule should be fraction applied to design level of electric equipment, generally (0.0 - 1.0)
@@ -460,8 +461,8 @@ Eskar:OccupancyType,
        \minimum 0
        \units W/m2
        \ip-units Btu/h-ft2
+       \default 0
   A6 , \field Gas Equipment Schedule Name
-       \required-field
        \type object-list
        \object-list ScheduleNames
        \note units in Schedule should be fraction applied to design level of gas equipment, generally (0.0 - 1.0)
@@ -481,11 +482,11 @@ Eskar:OccupancyType,
        \maximum 1.0
        \default 0
   N18, \field Water Use Equipment Peak Flow Rate density
-       \required-field
        \units m3/s-m2
        \ip-units gal/min-ft2
        \type real
        \minimum 0.0
+       \default 0
   A7 , \field Water Use Equipment Flow Rate Fraction Schedule Name
        \type object-list
        \object-list ScheduleNames
@@ -510,12 +511,11 @@ Eskar:OccupancyType,
        \minimum 0.0
        \maximum 1.0
        \default 0
-  N24, \field People per Zone Floor Area
+  N24, \field Zone Floor Area per Person
        \type real
        \minimum 0
-       \units person/m2
+       \units m2/person
   A8 , \field Number of People Fraction Schedule Name
-       \required-field
        \type object-list
        \note units in schedule should be fraction applied to number of people (0.0 - 1.0)
        \object-list ScheduleNames
@@ -550,7 +550,6 @@ Eskar:OccupancyType,
        \key TennisSingles
        \key Basketball
        \key Wrestling
-       \default Typing
   N25, \field People Activity Level
        \type real
        \units W/m2
@@ -594,45 +593,35 @@ Eskar:OccupancyType,
        \key AdaptiveCEN15251
        \note optional (only needed for people thermal comfort results reporting)
   A13, \field Internal Mass Construction Name
-       \required-field
        \note To be matched with a construction in this input file
        \type object-list
        \object-list ConstructionNames
   N29; \field Internal Mass Surface Area
-       \required-field
        \units m2
        \minimum> 0
 
 Eskar:Defaults,
-  A1,  \field name
-       \required-field
+  A1,  \field Name
        \type alpha
   A2 , \field Exterior Wall Construction Name
-       \required-field
        \type object-list
        \object-list ConstructionNames
   A3 , \field Interior Construction Name
-       \required-field
        \type object-list
        \object-list ConstructionNames
   A4 , \field Underground Wall Construction Name
-       \required-field
        \type object-list
        \object-list ConstructionNames
   A5 , \field Roof Construction Name
-       \required-field
        \type object-list
        \object-list ConstructionNames
   A6 , \field Floor Construction Name
-       \required-field
        \type object-list
        \object-list ConstructionNames
   A7 , \field Ceiling Below Plenum Construction Name
-       \required-field
        \type object-list
        \object-list ConstructionNames
   A8 , \field Window Construction Name
-       \required-field
        \type object-list
        \object-list ConstructionNames
   A9 , \field Door Construction Name
@@ -705,9 +694,9 @@ Eskar:Defaults,
        \type real
        \default 0
 
-Eskar:VerticalDetails, (multiple can be defined and can more that one can even be applied to same zone)
+Eskar:VerticalDetails, 
+       \memo Multiple can be defined and can more that one can be applied to same zone.
   A1,  \field Name
-       \required-field
        \type alpha
        \reference EskarVerticalDetails
   A2,  \field Start Corner 
@@ -785,9 +774,9 @@ Eskar:VerticalDetails, (multiple can be defined and can more that one can even b
        \minimum 0
        \type integer
 
-Eskar:HorizontalDetails, (multiple can be defined but this is applied to all zones at this height)
+Eskar:HorizontalDetails, 
+       \memo Multiple can be defined but this is applied to all zones at this height.
   A1,  \field Name
-       \required-field
        \type alpha
        \reference EskarHorizontalDetails
   N1,  \field Height Index of Lowest Edge
@@ -825,7 +814,6 @@ Eskar:HorizontalDetails, (multiple can be defined but this is applied to all zon
 
 Eskar:DetachedShading,
   A1,  \field Name
-       \required-field
        \type alpha
   A2,  \field TransSchedShadowSurf
        \type object-list
@@ -850,9 +838,9 @@ Eskar:DetachedShading,
        \minimum 1
        \type integer
 
-Eskar:RoofShape,  ! usually the default angle and eave depth is enough but this could be used to change the ends for certain roof segments
+Eskar:RoofShape,  
+       \memo Usually the default angle and eave depth is enough but this could be used to change the ends for certain roof segments.
   A1,  \field Name
-       \required-field
        \type alpha
   A2,  \field Right corner (combined dimension like A1, B9, AQ57)
        \note corner using dimensions from Eskar:DimensionSeriesX and Eskar:DimensionSeriesY in the form of: A1, B9, AQ57
@@ -877,7 +865,6 @@ Eskar:RoofShape,  ! usually the default angle and eave depth is enough but this 
 Eskar:Override,
        \extensible:1 
   A1,  \field Name
-       \required-field
        \type alpha
   A2,  \field Created Object Type
        \type alpha
@@ -905,7 +892,6 @@ Eskar:Override,
 Eskar:Libary,
        \unique-object
   A1,  \field Name
-       \required-field
        \type alpha
   A2,  \field Use DataSets as libary (yes/no)
        \type choice
