@@ -1,0 +1,918 @@
+\group Eskar Simplified Method for Geometry and Internal Gains
+
+Eskar:Heights, 
+       \memo Specify the actual heights for various height indices
+       \memo Negative number used in height indices is below grade otherwise assume usually 0 for ground level
+       \unique-object
+       \extensible:1 
+  A1 , \field Name
+       \required-field
+       \type alpha
+  N1,  \field Height of Height Index 1  
+       \required-field
+       \units m
+       \type real
+  N2,  \field Distance from Height Index 1 to Height Index 2
+       \required-field
+       \begin-extensible
+       \units m
+       \type real
+  N3,  \field Distance from Height Index 2 to Height Index 3
+       \units m
+       \type real
+  N4,  \field Distance from Height Index 3 to Height Index 4
+       \units m
+       \type real
+  N5,  \field Distance from Height Index 4 to Height Index 5
+       \units m
+       \type real
+  N6,  \field Distance from Height Index 5 to Height Index 6
+       \units m
+       \type real
+  N7,  \field Distance from Height Index 6 to Height Index 7
+       \units m
+       \type real
+  N8,  \field Distance from Height Index 7 to Height Index 8
+       \units m
+       \type real
+  N9,  \field Distance from Height Index 8 to Height Index 9
+       \units m
+       \type real
+  N10, \field Distance from Height Index 8 to Height Index 9
+       \units m
+       \type real
+  N11, \field Distance from Height Index 8 to Height Index 9
+       \units m
+       \type real
+  N12, \field Distance from Height Index 8 to Height Index 9
+       \units m
+       \type real
+  N13, \field Distance from Height Index 8 to Height Index 9
+       \units m
+       \type real
+  N14, \field Distance from Height Index 8 to Height Index 9
+       \units m
+       \type real
+  N15, \field Distance from Height Index 8 to Height Index 9
+       \units m
+       \type real
+  N16, \field Distance from Height Index 8 to Height Index 9
+       \units m
+       \type real
+  N17, \field Distance from Height Index 8 to Height Index 9
+       \units m
+       \type real
+  N18, \field Distance from Height Index 8 to Height Index 9
+       \units m
+       \type real
+  N19, \field Distance from Height Index 8 to Height Index 9
+       \units m
+       \type real
+  N20; \field Distance from Height Index 8 to Height Index 9
+       \units m
+       \type real
+
+Eskar:DimensionSeriesX,
+       \memo Specify the incremental distances from the origin in the X dimension
+       \memo A special value for any distance of -999999 means to reset the origin for any distances following
+       \unique-object
+       \extensible:1 
+  A1 , \field Name
+       \required-field
+       \type alpha
+  N1,  \field Distance Origin to A
+       \required-field
+       \begin-extensible
+       \units m
+       \type real
+  N2,  \field Distance A to B 
+       \required-field
+       \units m
+       \type real
+  N3,  \field Distance B to C
+       \units m
+       \type real
+  N4,  \field Distance C to D
+       \units m
+       \type real
+  N5,  \field Distance D to E
+       \units m
+       \type real
+  N6,  \field Distance E to F 
+       \units m
+       \type real
+  N7,  \field Distance F to G
+       \units m
+       \type real
+  N8,  \field Distance G to H
+       \units m
+       \type real
+  N9,  \field Distance H to I
+       \units m
+       \type real
+  N10, \field Distance I to J
+       \units m
+       \type real
+  N11, \field Distance J to K
+       \units m
+       \type real
+  N12, \field Distance K to L
+       \units m
+       \type real
+  N13, \field Distance L to M
+       \units m
+       \type real
+  N14, \field Distance M to N
+       \units m
+       \type real
+  N15, \field Distance N to O
+       \units m
+       \type real
+  N16, \field Distance O to P
+       \units m
+       \type real
+  N17, \field Distance P to Q
+       \units m
+       \type real
+  N18, \field Distance Q to R
+       \units m
+       \type real
+  N19, \field Distance R to S
+       \units m
+       \type real
+  N20, \field Distance S to T
+       \units m
+       \type real
+  N21, \field Distance T to U
+       \units m
+       \type real
+  N22, \field Distance U to V
+       \units m
+       \type real
+  N23, \field Distance V to W
+       \units m
+       \type real
+  N24, \field Distance W to X
+       \units m
+       \type real
+  N25, \field Distance X to Y
+       \units m
+       \type real
+  N26, \field Distance Y to Z
+       \units m
+       \type real
+  N27, \field Distance Z to AA
+       \units m
+       \type real
+  N28, \field Distance AA to AB
+       \units m
+       \type real
+  N29, \field Distance AB to AC
+       \units m
+       \type real
+  N30; \field Distance AC to AD
+       \units m
+       \type real
+
+Eskar:DimensionSeriesY, (only one of these)
+       \memo Specify the incremental distances from the origin in the Y dimension
+       \memo A special value for any distance of -999999 means to reset the origin for any distances following
+       \unique-object
+       \extensible:1 
+  A1 , \field Name
+       \required-field
+       \type alpha
+  N1,  \field Distance Origin to Location 1
+       \required-field
+       \begin-extensible
+       \units m
+       \type real
+  N2,  \field Distance Location 1 to Location 2 
+       \required-field
+       \units m
+       \type real
+  N3,  \field Distance Location 2 to Location 3
+       \units m
+       \type real
+  N4,  \field Distance Location 3 to Location 4
+       \units m
+       \type real
+  N5,  \field Distance Location 4 to Location 5
+       \units m
+       \type real
+  N6,  \field Distance Location 5 to Location 6
+       \units m
+       \type real
+  N7,  \field Distance Location 6 to Location 7
+       \units m
+       \type real
+  N8,  \field Distance Location 7 to Location 8
+       \units m
+       \type real
+  N9,  \field Distance Location 8 to Location 9
+       \units m
+       \type real
+  N10, \field Distance Location 9 to Location 10
+       \units m
+       \type real
+  N11, \field Distance Location 10 to Location 11
+       \units m
+       \type real
+  N12, \field Distance Location 11 to Location 12
+       \units m
+       \type real
+  N13, \field Distance Location 12 to Location 13
+       \units m
+       \type real
+  N14, \field Distance Location 13 to Location 14
+       \units m
+       \type real
+  N15, \field Distance Location 14 to Location 15
+       \units m
+       \type real
+  N16, \field Distance Location 15 to Location 16
+       \units m
+       \type real
+  N17, \field Distance Location 16 to Location 17
+       \units m
+       \type real
+  N18, \field Distance Location 17 to Location 18
+       \units m
+       \type real
+  N19, \field Distance Location 18 to Location 19
+       \units m
+       \type real
+  N20, \field Distance Location 19 to Location 20
+       \units m
+       \type real
+  N21, \field Distance Location 20 to Location 21
+       \units m
+       \type real
+  N22, \field Distance Location 21 to Location 22
+       \units m
+       \type real
+  N23, \field Distance Location 22 to Location 23
+       \units m
+       \type real
+  N24, \field Distance Location 23 to Location 24
+       \units m
+       \type real
+  N25, \field Distance Location 24 to Location 25
+       \units m
+       \type real
+  N26, \field Distance Location 25 to Location 26
+       \units m
+       \type real
+  N27, \field Distance Location 26 to Location 27
+       \units m
+       \type real
+  N28, \field Distance Location 27 to Location 28
+       \units m
+       \type real
+  N29, \field Distance Location 28 to Location 29
+       \units m
+       \type real
+  N30; \field Distance Location 29 to Location 30
+       \units m
+       \type real
+
+Eskar:Zone,
+       \memo Defines a thermal zone of the building using the Eskar approach.
+       \extensible:1 
+  A1 , \field Name
+       \required-field
+       \type alpha
+       \reference ZoneNames
+       \reference OutFaceEnvNames
+       \reference ZoneAndZoneListNames
+       \reference AirflowNetworkNodeAndZoneNames
+  A2,  \field Occupancy type
+       \required-field
+       \note The type of occupancy for the zone
+       \type object-list
+       \object-list EskarOccupancyTypes
+  N1,  \field Height index of Floor
+       \minimum 1
+       \type integer
+  N2,  \field Height index of Ceiling
+       \minimum 1
+       \type integer
+  N3,  \field Height index of Next Floor
+       \minimum 1
+       \type integer
+  N4,  \field Floor multiplier above
+       \note if specified the number is greater than one additional zones that are identical are created directly above this one with same shape and height
+       \minimum 0
+       \default 0
+       \type integer
+  A3,  \field Part of Total Floor Area
+       \type choice
+       \key Yes
+       \key No
+       \default Yes
+  A4,  \field corner 1
+       \note corner of zone using dimensions from Eskar:DimensionSeriesX and Eskar:DimensionSeriesY in the form of: A1, B9, AQ57
+       \type alpha
+       \begin-extensible
+  A5,  \field corner 2
+       \note corner of zone using dimensions from Eskar:DimensionSeriesX and Eskar:DimensionSeriesY in the form of: A1, B9, AQ57
+       \type alpha
+  A6,  \field corner 3
+       \note corner of zone using dimensions from Eskar:DimensionSeriesX and Eskar:DimensionSeriesY in the form of: A1, B9, AQ57
+       \type alpha
+  A7,  \field corner 4
+       \note corner of zone using dimensions from Eskar:DimensionSeriesX and Eskar:DimensionSeriesY in the form of: A1, B9, AQ57
+       \type alpha
+  A8,  \field corner 5
+       \note corner of zone using dimensions from Eskar:DimensionSeriesX and Eskar:DimensionSeriesY in the form of: A1, B9, AQ57
+       \type alpha
+  A9,  \field corner 6
+       \note corner of zone using dimensions from Eskar:DimensionSeriesX and Eskar:DimensionSeriesY in the form of: A1, B9, AQ57
+       \type alpha
+  A10, \field corner 7
+       \note corner of zone using dimensions from Eskar:DimensionSeriesX and Eskar:DimensionSeriesY in the form of: A1, B9, AQ57
+       \type alpha
+  A11, \field corner 8
+       \note corner of zone using dimensions from Eskar:DimensionSeriesX and Eskar:DimensionSeriesY in the form of: A1, B9, AQ57
+       \type alpha
+  A12, \field corner 9
+       \note corner of zone using dimensions from Eskar:DimensionSeriesX and Eskar:DimensionSeriesY in the form of: A1, B9, AQ57
+       \type alpha
+  A13; \field corner 10
+       \note corner of zone using dimensions from Eskar:DimensionSeriesX and Eskar:DimensionSeriesY in the form of: A1, B9, AQ57
+       \type alpha
+
+Eskar:OccupancyType,  
+       \memo some 'office', 'retail', etc.. are predefined and don't need to be specified - should it include thermostat setpoints?
+  A1,  \field name
+       \required-field
+       \type alpha
+       \reference EskarOccupancyTypes
+  N1,  \field Lighting Power Density - Watts per Zone Floor Area
+       \type real
+       \minimum 0
+       \units W/m2
+       \ip-units W/ft2
+  A2,  \field lighting schedule
+       \required-field
+       \type object-list
+       \object-list ScheduleNames
+       \note units in schedule should be fraction applied to design level of lights, generally (0.0 - 1.0)
+  A3,  \field lighting luminaire configurations (see IOref table 1.23)
+       \type choice
+       \key RecessedParabolicLouverNonVentedT8
+       \key RecessedAcrylicLensNonVentedT8
+       \key RecessedParabolicLouverVentedT8
+       \key RecessedAcrylicLensVentedT8
+       \key RecessedDirect/IndirectT8
+       \key RecessedVolumetricT5
+       \key DownlightsCompactFluorescentDTT
+       \key DownlightsCompactFluorescentTRT
+       \key DownlightsIncandescentA21
+       \key DownlightsIncandescentBR40
+       \key SurfaceMountedT5HO
+       \key PendantDirectIndirectT8
+       \key PendantIndirectT5HO
+       \key RecessedParabolicLouverNonVentedT8Ducted
+       \key RecessedDirectIndirectT8Ducted 
+       \key RecessedParabolicLouverNonVentedT8HalfTypicalSupplyAirflowRate
+       \key RecessedParabolicLouverVentedT8HalfTypicalSupplyAirflowRate
+       \key RecessedDirectIndirectT8HalfTypicalSupplyAirflowRate
+       \key RecessedParabolicLouverNonVentedT8HalfTypicalSupplyAirflowRate
+       \key RecessedParabolicLouverVentedT8HalfTypicalSupplyAirflowRate 
+       \key RecessedDirectIndirectT8HalfTypicalSupplyAirflowRate
+       \default RecessedParabolicLouverNonVentedT8
+  A4,  \field Daylighting Lighting Control Type
+       \type choice
+       \key Continuous
+       \key Stepped
+       \key ContinuousOff
+       \default Continuous
+  N2,  \field Daylighting Sensor Height
+       \note the default is desktop height
+       \type real
+       \minimum 0.0
+       \default 0.762
+  N3,  \field Multiplier for Daylighting Sensor Distance from Window Based on Top of Window Height
+       \type choice
+       \type real
+       \minimum 0.0
+       \default 0.6667
+  N4,  \field Daylighting Minimum Input Power Fraction for Continuous or ContinuousOff Dimming Control
+       \type real
+       \minimum 0.0
+       \maximum 0.6
+       \default 0.3
+  N5,  \field Daylighting Minimum Light Output Fraction for Continuous or ContinuousOff Dimming Control
+       \type real
+       \minimum 0.0
+       \maximum 0.6
+       \default 0.2
+  N6,  \field Daylighting Number of Stepped Control Steps
+       \note The number of steps, excluding off, in a stepped lighting control system.
+       \note If Lighting Control Type is Stepped, this field must be greater than zero.
+       \note The steps are assumed to be equally spaced.
+       \type integer
+       \minimum 1
+       \default 1
+  N7,  \field Daylighting Probability Lighting will be Reset When Needed in Manual Stepped Control
+       \type real
+       \minimum 0.0
+       \maximum 1.0
+       \default 1.0
+  N8,  \field Daylighting Maximum Allowable Discomfort Glare Index
+       \type real
+       \minimum 1
+       \note The default is for general office work
+       \default 22
+  N9,  \field Daylighting Illuminance Setpoint
+       \units lux
+       \type real
+       \minimum 0.0
+       \default 500
+  N10, \field Electrical Equipment Watts per Zone Floor Area
+       \type real
+       \minimum 0
+       \units W/m2
+       \ip-units W/ft2
+  A5 , \field Electrical Equipment Schedule Name
+       \required-field
+       \type object-list
+       \object-list ScheduleNames
+       \note units in schedule should be fraction applied to design level of electric equipment, generally (0.0 - 1.0)
+  N11, \field Electrical Equipment Fraction Latent
+       \type real
+       \minimum 0.0
+       \maximum 1.0
+       \default 0
+  N12, \field Electrical Equipment Fraction Radiant
+       \type real
+       \minimum 0.0
+       \maximum 1.0
+       \default 0
+  N13, \field Electrical Equipment Fraction Lost
+       \type real
+       \minimum 0.0
+       \maximum 1.0
+       \default 0
+  N14, \field Gas Equipment Power per Zone Floor Area
+       \type real
+       \minimum 0
+       \units W/m2
+       \ip-units Btu/h-ft2
+  A6 , \field Gas Equipment Schedule Name
+       \required-field
+       \type object-list
+       \object-list ScheduleNames
+       \note units in Schedule should be fraction applied to design level of gas equipment, generally (0.0 - 1.0)
+  N15, \field Gas Equipment Fraction Latent
+       \type real
+       \minimum 0.0
+       \maximum 1.0
+       \default 0
+  N16, \field Gas Equipment Fraction Radiant
+       \type real
+       \minimum 0.0
+       \maximum 1.0
+       \default 0
+  N17, \field Gas Equipment Fraction Lost
+       \type real
+       \minimum 0.0
+       \maximum 1.0
+       \default 0
+  N18, \field Water Use Equipment Peak Flow Rate density
+       \required-field
+       \units m3/s-m2
+       \ip-units gal/min-ft2
+       \type real
+       \minimum 0.0
+  A7 , \field Water Use Equipment Flow Rate Fraction Schedule Name
+       \type object-list
+       \object-list ScheduleNames
+       \note Defaults to 1.0 at all times
+  N19, \field Water Use Equipment Target Temperature
+       \type real
+       \units C
+  N20, \field Water Use Equipment Hot Water Supply Temperature
+       \type real
+       \units C
+  N21, \field Water Use Equipment Cold Water Supply Temperature
+       \type real
+       \units C
+       \note Defaults to water temperatures calculated by Site:WaterMainsTemperature object
+  N22, \field Water Use Equipment Sensible Fraction Schedule Name
+       \type real
+       \minimum 0.0
+       \maximum 1.0
+       \default 0
+  N23, \field Water Use Equipment Latent Fraction Schedule Name
+       \type real
+       \minimum 0.0
+       \maximum 1.0
+       \default 0
+  N24, \field People per Zone Floor Area
+       \type real
+       \minimum 0
+       \units person/m2
+  A8 , \field Number of People Fraction Schedule Name
+       \required-field
+       \type object-list
+       \note units in schedule should be fraction applied to number of people (0.0 - 1.0)
+       \object-list ScheduleNames
+  A9 , \field People Predefined Activity 
+       \note based on IORef Table 1.21
+       \note using midpoint if range specified
+       \type choice
+       \key Sleeping
+       \key Reclining
+       \key SeatedQuiet
+       \key StandingRelaxed
+       \key Walking3
+       \key Walking4
+       \key Walking6
+       \key ReadingSeated
+       \key Writing
+       \key Typing
+       \key FilingSeated
+       \key FilingStanding
+       \key WalkingAbout
+       \key LiftingPacking
+       \key Cooking
+       \key Housecleaning
+       \key SeatedHeavyLimbMovement
+       \key MachineWork
+       \key TableSawing
+       \key ElectricalIndustryLightWork
+       \key HandlingHeavyBag
+       \key PickAndShovelWork
+       \key Dancing
+       \key Calisthenics
+       \key TennisSingles
+       \key Basketball
+       \key Wrestling
+       \default Typing
+  N25, \field People Activity Level
+       \type real
+       \units W/m2
+       \ip-units Btu/h-ft2
+       \minimum 0.0
+  N26, \field People Fraction Radiant
+       \type real
+       \minimum 0.0
+       \maximum 1.0
+       \default 0.3
+       \note This is radiant fraction of the sensible heat released by people in a zone. This value will be
+       \note multiplied by the total sensible heat released by people yields the amount of long wavelength
+       \note radiation gain from people in a zone. Default value is 0.30.
+  N27, \field People Sensible Heat Fraction
+       \note if input, overrides program calculated sensible/latent split
+       \autocalculatable
+       \default autocalculate
+       \minimum 0.0
+       \maximum 1.0
+  A10, \field Enable ASHRAE 55 Comfort Warnings
+       \type choice
+       \key Yes
+       \key No
+       \default No
+  N28, \field People Work Efficiency 
+       \type real
+       \minimum 0.0
+       \maximum 1.0
+       \default 0.0
+  A11, \field Air Velocity Schedule Name
+       \type object-list
+       \object-list ScheduleNames
+       \note units in the schedule are m/s
+       \note optional (only required for runs of thermal comfort models: Fanger, Pierce and KSU)
+  A12, \field Thermal Comfort Model Type
+       \type choice
+       \key Fanger
+       \key Pierce
+       \key KSU
+       \key AdaptiveASH55
+       \key AdaptiveCEN15251
+       \note optional (only needed for people thermal comfort results reporting)
+  A13, \field Internal Mass Construction Name
+       \required-field
+       \note To be matched with a construction in this input file
+       \type object-list
+       \object-list ConstructionNames
+  N29; \field Internal Mass Surface Area
+       \required-field
+       \units m2
+       \minimum> 0
+
+Eskar:Defaults,
+  A1,  \field name
+       \required-field
+       \type alpha
+  A2 , \field Exterior Wall Construction Name
+       \required-field
+       \type object-list
+       \object-list ConstructionNames
+  A3 , \field Interior Construction Name
+       \required-field
+       \type object-list
+       \object-list ConstructionNames
+  A4 , \field Underground Wall Construction Name
+       \required-field
+       \type object-list
+       \object-list ConstructionNames
+  A5 , \field Roof Construction Name
+       \required-field
+       \type object-list
+       \object-list ConstructionNames
+  A6 , \field Floor Construction Name
+       \required-field
+       \type object-list
+       \object-list ConstructionNames
+  A7 , \field Ceiling Below Plenum Construction Name
+       \required-field
+       \type object-list
+       \object-list ConstructionNames
+  A8 , \field Window Construction Name
+       \required-field
+       \type object-list
+       \object-list ConstructionNames
+  A9 , \field Door Construction Name
+       \type object-list
+       \object-list ConstructionNames
+  A10, \field Skylight Construction Name
+       \type object-list
+       \object-list ConstructionNames
+  A11, \field Window Construction Name
+       \type object-list
+       \object-list ConstructionNames
+  A12, \field Occupancy type
+       \type object-list
+       \object-list EskarOccupancyTypes
+  A13, \field VerticalDetails
+       \type object-list
+       \object-list EskarVerticalDetails
+       \note start and end corners and bottom and top height indices are ignored when used as default
+  N1,  \field Roof angle 
+       \type real
+       \minimum 0.0
+       \default 90.0
+       \units deg
+       \note a flat roof would be 90
+  N2,  \field Eave depth
+       \units m
+       \type real
+  A14, \field Infiltration Design Flow Rate Calculation Method
+       \note The entered calculation method is used to create the maximum amount of infiltration
+       \note for this set of attributes
+       \note Choices: Flow/Zone => Design Flow Rate -- simply enter Design Flow Rate
+       \note Flow/Area => Flow per Zone Floor Area - Value * Floor Area (zone) = Design Flow Rate
+       \note Flow/ExteriorArea => Flow per Exterior Surface Area - Value * Exterior Surface Area (zone) = Design Flow Rate
+       \note Flow/ExteriorWallArea => Flow per Exterior Surface Area - Value * Exterior Wall Surface Area (zone) = Design Flow Rate
+       \note AirChanges/Hour => Air Changes per Hour - Value * Floor Volume (zone) adjusted for m3/s = Design Volume Flow Rate
+       \note  "Idesign" in Equation is the result.
+       \note this approach is applied to perimeter zones only. Interior zones have no infiltration
+       \type choice
+       \key Flow/ExteriorArea
+       \key Flow/ExteriorWallArea
+       \key AirChanges/Hour
+       \default Flow/ExteriorArea
+  N3 , \field Infiltration Flow per Exterior Surface Area
+       \note use key Flow/ExteriorArea for all exterior surface area
+       \note use key Flow/ExteriorWallArea to include only exterior wall area
+       \units m3/s-m2
+       \type real
+       \minimum 0
+  N4 , \field Infiltration Air Changes per Hour
+       \units 1/hr
+       \type real
+       \minimum 0
+  A15, \field Infiltration Schedule Name
+       \type object-list
+       \object-list ScheduleNames
+  N5 , \field Infiltration Constant Term Coefficient
+       \note  "A" in Equation
+       \type real
+       \default 1
+  N6 , \field Infiltration Temperature Term Coefficient
+       \note  "B" in Equation
+       \type real
+       \default 0
+  N7 , \field Infiltration Velocity Term Coefficient
+       \note  "C" in Equation
+       \type real
+       \default 0
+  N8 ; \field Infiltration Velocity Squared Term Coefficient
+       \note  "D" in Equation
+       \type real
+       \default 0
+
+Eskar:VerticalDetails, (multiple can be defined and can more that one can even be applied to same zone)
+  A1,  \field Name
+       \required-field
+       \type alpha
+       \reference EskarVerticalDetails
+  A2,  \field Start Corner 
+       \note corner using dimensions from Eskar:DimensionSeriesX and Eskar:DimensionSeriesY in the form of: A1, B9, AQ57
+       \note when corners are both exterior it goes around building, if one or more are  inside, then it is inside
+       \type alpha
+  A3,  \field End Corner 
+       \note corner using dimensions from Eskar:DimensionSeriesX and Eskar:DimensionSeriesY in the form of: A1, B9, AQ57
+       \note when corners are both exterior it goes around building, if one or more are  inside, then it is inside
+       \type alpha
+  N1,  \field Bottom Height index
+       \minimum 1
+       \type integer
+  N2,  \field Top Height index
+       \minimum 1
+       \type integer
+  A4 , \field Exterior Wall Construction Name
+       \note leave blank to use default
+       \type object-list
+       \object-list ConstructionNames
+  A5 , \field Sub Surface Type (window, door, glassdoor)
+       \type choice
+       \key Window
+       \key Door
+       \key Glassdoor
+  N3,  \field Window or Door Height
+       \units m
+       \type real
+  N4,  \field Window or Door Width
+       \units m
+       \type real
+  N5,  \field Window Sill Height
+       \units m
+       \type real
+  N6,  \field Window or Door Fin Depth 
+       \units m
+       \type real
+  N7,  \field Window or Door Fin Distance from Side
+       \units m
+       \type real
+  N8,  \field Window or Door Overhang Depth
+       \units m
+       \type real
+  N9,  \field Window or Door Overhang Height Above Opening
+       \units m
+       \type real
+  N10, \field Window or Door Overhang Extension to Right and Left
+       \units m
+       \type real
+  A6 , \field Sub Surface Construction Name
+       \note leave blank to use default
+       \type object-list
+       \object-list ConstructionNames
+  A7, \field Frame and Divider Name
+       \note Enter the name of a WindowProperty:FrameAndDivider object
+       \type object-list
+       \object-list WindowFrameAndDividerNames
+       \note Used only for exterior windows (rectangular) and glass doors.
+       \note Unused for triangular windows.
+       \note If not specified (blank), window or glass door has no frame or divider
+       \note and no beam solar reflection from reveal surfaces.
+  A8,  \field Fenestration Opening Layout Options
+       \type choice
+       \key DistanceBetween
+       \key PercentGlazing
+       \key Multiplier
+  N11, \field Distance Between Fenestration Openings
+       \units m
+       \type real
+       \minimum 0
+  N12, \field percent glazing
+       \minimum 0
+       \type real
+  N13; \field Multiplier
+       \minimum 0
+       \type integer
+
+Eskar:HorizontalDetails, (multiple can be defined but this is applied to all zones at this height)
+  A1,  \field Name
+       \required-field
+       \type alpha
+       \reference EskarHorizontalDetails
+  N1,  \field Height Index of Lowest Edge
+       \minimum 1
+       \type integer
+  N2,  \field Width
+       \units m
+       \type real
+       \minimum 0
+  N3,  \field Depth
+       \units m
+       \type real
+       \minimum 0
+  A2 , \field Roof Construction Name
+       \type object-list
+       \object-list ConstructionNames
+  A3, \field Skylight Construction Name
+       \type object-list
+       \object-list ConstructionNames
+  A4,  \field Skylight Opening Layout Options
+       \type choice
+       \key DistanceBetween
+       \key PercentGlazing
+       \key Multiplier
+  N4,  \field Distance Between Skylight Openings
+       \units m
+       \type real
+       \minimum 0
+  N5,  \field Percent Glazing
+       \minimum 0
+       \type real
+  N6;  \field Multiplier
+       \minimum 0
+       \type integer
+
+Eskar:DetachedShading,
+  A1,  \field Name
+       \required-field
+       \type alpha
+  A2,  \field TransSchedShadowSurf
+       \type object-list
+       \object-list ScheduleNames
+  A3,  \field Right corner (combined dimension like A1, B9, AQ57)
+       \note corner using dimensions from Eskar:DimensionSeriesX and Eskar:DimensionSeriesY in the form of: A1, B9, AQ57
+       \note when corners are both exterior it goes around building, if one or more are  inside, then it is inside
+       \type alpha
+  A4,  \field Left corner (combined dimension like A1, B9, AQ57)
+       \note corner using dimensions from Eskar:DimensionSeriesX and Eskar:DimensionSeriesY in the form of: A1, B9, AQ57
+       \note when corners are both exterior it goes around building, if one or more are  inside, then it is inside
+       \type alpha
+  A5,  \field Rotate with building (yes, no)
+       \type choice
+       \key Yes
+       \key No
+       \default No
+  N1,  \field Bottom Height Index
+       \minimum 1
+       \type integer
+  N2;  \field Top Height Index
+       \minimum 1
+       \type integer
+
+Eskar:RoofShape,  ! usually the default angle and eave depth is enough but this could be used to change the ends for certain roof segments
+  A1,  \field Name
+       \required-field
+       \type alpha
+  A2,  \field Right corner (combined dimension like A1, B9, AQ57)
+       \note corner using dimensions from Eskar:DimensionSeriesX and Eskar:DimensionSeriesY in the form of: A1, B9, AQ57
+       \note when corners are both exterior it goes around building, if one or more are  inside, then it is inside
+       \type alpha
+  A3,  \field Left corner (combined dimension like A1, B9, AQ57)
+       \note corner using dimensions from Eskar:DimensionSeriesX and Eskar:DimensionSeriesY in the form of: A1, B9, AQ57
+       \note when corners are both exterior it goes around building, if one or more are  inside, then it is inside
+       \type alpha
+  N1,  \field Roof angle 
+       \minimum 0.0
+       \default 90.0
+       \units deg
+       \note a flat roof would be 90
+  N2,  \field Eave depth
+       \units m
+       \type real
+  N3;  \field Overhang at peak (usually zero)
+       \units m
+       \type real
+  
+Eskar:Override,
+       \extensible:1 
+  A1,  \field Name
+       \required-field
+       \type alpha
+  A2,  \field Created Object Type
+       \type alpha
+  A3,  \field Created Object Name
+       \type alpha
+  A4,  \field First Field modified A2, N1, etc..
+       \type alpha
+  A5,  \field Override field value 1
+       \type alpha
+       \begin-extensible
+       \note Created object field override value
+  A6,  \field Override field value 2 
+       \note For the next field
+       \type alpha
+       \note Created object field override value or blank to leave as is
+  A7,  \field Override field value 3
+       \note For the next field
+       \type alpha
+       \note Created object field override value or blank to leave as is
+  A8;  \field Override field value 4
+       \note For the next field
+       \type alpha
+       \note Created object field override value or blank to leave as is
+  
+Eskar:Libary,
+       \unique-object
+  A1,  \field Name
+       \required-field
+       \type alpha
+  A2,  \field Use DataSets as libary (yes/no)
+       \type choice
+       \key Yes
+       \key No
+       \default No
+  A3,  \field Shared Libary File Name
+       \type alpha
+  A4;  \field Local Libary File Name
+       \type alpha
