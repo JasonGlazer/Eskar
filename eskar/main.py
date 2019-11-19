@@ -24,7 +24,11 @@ def main():
             with_objects_removed_file_name = root + '-with-objects-removed.temp'
             utility.delete_file_if_exists(with_objects_removed_file_name)
 
-            translator = TranslateToDetailed(before_file_name, new_objects_only_file_name)
+            # errors and warnings file
+            warnings_file_name = root + '-eskar.err'
+            utility.delete_file_if_exists(warnings_file_name)
+
+            translator = TranslateToDetailed(before_file_name, new_objects_only_file_name, warnings_file_name)
             if translator.do_eksar_objects_exist():
                 translator.create_detailed_objects()
                 list_of_object_names = translator.list_of_eskar_objects()
@@ -33,6 +37,7 @@ def main():
                 # clean up the temporary files
 #                utility.delete_file_if_exists(new_objects_only_file_name)
 #                utility.delete_file_if_exists(with_objects_removed_file_name)
+                translator.close_warnings_file()
             else:
                 os.remove(after_file_name)
                 print('No Eskar:* objects found in the file: ', before_file_name)

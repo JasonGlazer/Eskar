@@ -29,12 +29,14 @@ class Utilities(object):
                     exclamation_point_loc = line.find('!')
                     comma_loc = line.find(',')
                     # only worry about commas that appear before the comment character '!'
-                    if comma_loc > exclamation_point_loc:
-                        comma_loc = -1
+                    if exclamation_point_loc >= 0:
+                        if comma_loc > exclamation_point_loc:
+                            comma_loc = -1
                     semi_loc = line.find(';')
                     # only worry about semicolons that appear before the comment character '!'
-                    if semi_loc > exclamation_point_loc:
-                        semi_loc = -1
+                    if exclamation_point_loc >= 0:
+                        if semi_loc > exclamation_point_loc:
+                            semi_loc = -1
                     if not in_object:
                         if comma_loc >= 0:
                             in_object = True
@@ -48,4 +50,5 @@ class Utilities(object):
                             in_selected_object = False
                     if write_line:
                         outfile.write(line)
-                    print(write_line,line)
+                    # print(write_line, line)
+
