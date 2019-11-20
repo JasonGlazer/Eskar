@@ -69,14 +69,6 @@ class TranslateToDetailed(object):
 
     def get_eskar_objects(self):
 
-        self.eskar_dimension_series_x = self.idf.idfobjects['Eskar:DimensionSeriesX']
-        if len(self.eskar_dimension_series_x) != 1:
-            self.warning_file.write('Every file with Eskar objects should have one and only one Eskar:DimensionSeriesX object.\n')
-
-        self.eskar_dimension_series_y = self.idf.idfobjects['Eskar:DimensionSeriesY']
-        if len(self.eskar_dimension_series_y) != 1:
-            self.warning_file.write('Every file with Eskar objects should have one and only one Eskar:DimensionSeriesY object.\n')
-
         self.eskar_defaults = self.idf.idfobjects['Eskar:Defaults']
         if len(self.eskar_defaults) > 1:
             self.warning_file.write('Every file with Eskar objects should have no more than one Eskar:Defaults object.\n')
@@ -165,18 +157,66 @@ class TranslateToDetailed(object):
             self.warning_file.write('Reference to a height index of \"{}\" is invalid. Only integer numbers are allowed for height indices. \n'.format(height_index))
             return 0
 
+    def xy_position_from_corner_code(self, corner_code):
+        # takes a corner code in the form of A1, B7, RT145 and returns the absolute x and y coordinate location
+        letter_value, number_value = self.corner_code_to_indices(corner_code)
+        print('corner_code, letter_value, number_value', corner_code, letter_value, number_value)
+        if len(self.x_distances) == 0:
+            self.warning_file.write('No distances defined with Eskar:DimensionSeriesX so geometry cannot be defined  \n')
+            return 0, 0
+        if len(self.y_distances) == 0:
+            self.warning_file.write('No distances defined with Eskar:DimensionSeriesY so geometry cannot be defined  \n')
+            return 0, 0
+        if letter_value > len(self.x_distances):
+            self.warning_file.write('Invalid corder code used: \"{}\". Referencing value beyond what was defined in Eskar:DimensionSeriesX. \n'.format(corner_code))
+            return 0, 0
+        if number_value > len(self.y_distances):
+            self.warning_file.write('Invalid corder code used: \"{}\". Referencing value beyond what was defined in Eskar:DimensionSeriesY. \n'.format(corner_code))
+            return 0, 0
+        return self.x_distances[letter_value], self.y_distances[number_value]
+
+    def corner_code_to_indices(self, corner_code):
+        # takes a corner code in the form of A1, B7, RT145 and returns indices A=0, B=1, AA=26, AB=27 plus the number after the letters
+        first_digit_pos = self.find_first_digit(corner_code)
+        if first_digit_pos == -1:
+            self.warning_file.write('Invalid corder code used: \"{}\". The corner codes must be the form of A1, B7, CR341 with letters followed by digits. \n'.format(corner_code))
+            return 0, 0
+        letters = corner_code[:first_digit_pos]
+        numbers = corner_code[first_digit_pos:]
+        if not numbers.isdigit() or not letters.isalpha():
+            self.warning_file.write('Invalid corder code used: \"{}\". The corner codes must be the form of A1, B7, CR341 with letters followed by digits. \n'.format(corner_code))
+            return 0, 0
+        letter_portion_value = 0
+        for c in letters:
+            cap_c = c.upper()
+            cap_c_ord = ord(cap_c)
+            if cap_c_ord > 90 or cap_c_ord < 65:
+                self.warning_file.write('Invalid corder code used: \"{}\".  The characters must just be letters A to Z. \n'.format(corner_code))
+                return 0, 0
+            letter_portion_value = letter_portion_value * 26 + (cap_c_ord - 64)
+        letter_portion_value = letter_portion_value - 1 # need to make this adjustment to make indices zero based instead of one based
+        number_portion_value = int(numbers) - 1 # need to make this adjustment to make indices zero based instead of one based
+        return letter_portion_value, number_portion_value
+
+    def find_first_digit(self,s):
+        for i, c in enumerate(s):
+            if c.isdigit():
+                return i
+                break
+        return -1
+
     def write_zone_geometry(self):
         for zone in self.eskar_zones:
             # self.print_field_names(zone)
             # print(zone)
-            floor_height = self.height_from_height_index(zone.Height_index_of_Floor )
-            ceiling_height = self.height_from_height_index(zone.Height_index_of_Floor )
+            floor_height = self.height_from_height_index(zone.Height_index_of_Floor)
+            ceiling_height = self.height_from_height_index(zone.Height_index_of_Floor)
             next_floor_height = self.height_from_height_index(zone.Height_index_of_Next_Floor)
-            break
             for fld in zone.fieldnames:
                 if 'corner' in fld:
-                    corner_x, corner_y = self.xy_position_from_corner_code(zone[fld])
-                    print(corner_x, ',', corner_y)
+                    if zone[fld]:
+                        corner_x, corner_y = self.xy_position_from_corner_code(zone[fld])
+                        print(corner_x, ',', corner_y)
 
 
     def print_field_names(self, ep_obj):
