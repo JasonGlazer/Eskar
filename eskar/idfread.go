@@ -58,11 +58,12 @@ type BuildSurfDetType struct {
 var buildSurfDet []BuildSurfDetType
 
 func main() {
-	readidf5("5ZoneAirCooled.idf", "modified.idf")
+	var foundObjects []string
+	foundObjects = readidf5("5ZoneAirCooled.idf", "modified.idf")
+	showFound(foundObjects)
 }
 
-
-func readidf5(infilename string, outfilename string) {
+func readidf5(infilename string, outfilename string) ([]string){
 
 	var foundObjects []string
 
@@ -127,9 +128,14 @@ func readidf5(infilename string, outfilename string) {
 			objStringBuilder.Reset()
 		}
 	}
+	if err := scanner.Err(); err != nil {
+		log.Fatal(err)
+	}
+  return foundObjects
+}
 
+func showFound(foundObjects []string){
 	for _, obj := range foundObjects {
-		// fmt.Fprintln(outfile, obj)
 		fields := strings.Split(obj, ",")
 		var bsd BuildSurfDetType
 		bsd.Name = fields[1]
@@ -140,17 +146,16 @@ func readidf5(infilename string, outfilename string) {
 		bsd.OutBndCondNm = fields[6]
 		//bsd.SunExposed
 		//bsd.WindExposed
-		bsd.ViewFact, err = strconv.ParseFloat(fields[9], 64)
+		viewFactor, err := strconv.ParseFloat(fields[9], 64)
+		bsd.ViewFact = viewFactor
 		bsd.NumVert, err = strconv.Atoi(fields[10])
 		//bsd.Vertices[0].XCoord =
 		buildSurfDet = append(buildSurfDet, bsd)
+		log.Fatal(err)
 	}
 
 	for _, obj := range buildSurfDet {
-		fmt.Fprintln(outfile, obj.Name, "::", obj.ZoneNm, "::", obj.ConsNm)
+		fmt.Println(obj.Name, "::", obj.ZoneNm, "::", obj.ConsNm)
 	}
-
-	if err := scanner.Err(); err != nil {
-		log.Fatal(err)
-	}
+	
 }
