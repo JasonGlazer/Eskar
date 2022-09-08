@@ -149,13 +149,17 @@ func showFound(foundObjects []string){
 		viewFactor, err := strconv.ParseFloat(fields[9], 64)
 		bsd.ViewFact = viewFactor
 		bsd.NumVert, err = strconv.Atoi(fields[10])
-		//bsd.Vertices[0].XCoord =
+		currentVertex := Vertex{0,0,0}
+		currentVertex.XCoord, err = strconv.ParseFloat(fields[11], 64)
+		currentVertex.YCoord, err = strconv.ParseFloat(fields[12], 64)
+		currentVertex.ZCoord, err = strconv.ParseFloat(fields[13], 64)
+		bsd.Vertices = append(bsd.Vertices, currentVertex)
 		buildSurfDet = append(buildSurfDet, bsd)
-		log.Fatal(err)
+		fmt.Println(err)
 	}
 
 	for _, obj := range buildSurfDet {
-		fmt.Println(obj.Name, "::", obj.ZoneNm, "::", obj.ConsNm)
+		fmt.Println(obj.Name, "::", obj.ZoneNm, "::", obj.ConsNm, " :: ",obj.Vertices[0])
 	}
 	
 }
